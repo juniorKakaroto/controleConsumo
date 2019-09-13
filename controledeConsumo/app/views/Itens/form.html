@@ -1,0 +1,30 @@
+#{extends 'main.html' /} #{set title:'Home' /}
+#{set title:'Novo Cadastro' /}
+
+
+<h1>asd</h1>
+<form action="@{Itens.salvar}">
+
+<!-- 		<input type="hidden" name="Itens.id"> -->
+
+	<label>Nome:</label>
+	<input type="text" name="item.nome" /><br />
+
+	<label>Preco:</label>
+	<input type="number" name="item.preco" /><br />
+	
+	<label>Quantidade:</label>
+	<input type="number" name="item.quantidade" /><br />
+
+	<label>Marca</label>
+	<select name="item.marca.id">
+		#{list items:marcas, as:'i'}
+			<option value="${i.id}">${i.nome}</option>
+		#{/list}
+	</select>
+	<br />
+
+	<input type="submit" >
+	
+		
+</form>

@@ -1,0 +1,53 @@
+#{extends 'main.html' /} #{set title:'Home' /}
+
+#{if cad}
+	#{set title:'Edição de Cadastro' /}
+#{/if}
+#{else}
+	#{set title:'Novo Cadastro' /}
+#{/else}
+
+
+<form action="@{Clientes.cadastrar}">
+
+		<input type="hidden" name="cad.id" value="${cad?.id}">
+	
+	<fieldset class="shadow p-3 mb-5 bg-white rounded" style="width: 80%; margin: auto; ">
+				<div class="form-group">
+					<label for="formGroupExampleInput">Nome:</label> 
+						<input 	type="text" class="form-control" id="formGroupExampleInput"
+								placeholder="Digite seu nome.." name="cad.nome" value="${cad?.nome}"/>
+				</div>
+				
+				<div class="form-group">
+					<label for="formGroupExampleInput">Documento:</label> 
+						<input 	type="text" class="form-control cpf-mask" id="formGroupExampleInput"
+								placeholder="Insida os dados de seu Documento.." 
+								name="cad.documento" value="${cad?.documento}" 
+								onkeydown="javascript: fMasc( this, mCPF );"/>
+				</div>
+								
+				<div class="form-group">
+					<label for="formGroupExampleInput">Pulseira Identificadora:</label> 
+						<input 	type="tel" class="form-control" id="formGroupExampleInput"
+								placeholder="Digite codigo da Pulseira.." 
+								name="cad.pulseira" value="${cad?.pulseira}"/>
+				</div>				
+				
+				<div style="text-align: center">
+					
+					<input type="submit" class="btn btn-primary"
+						title="Cadastrar Cliente?"  value="${cad ? 'Editar Resgistro' : 'Cadastrar'}"/>
+					
+					<button type="reset" class="btn btn-warning" title="Limpar campos?">Limpar</button>
+					
+					<br /> <br /> <br /> 
+					<a href="@{Clientes.listar}">					
+						<button type="button" class="btn btn-primary btn-lg btn-block">
+							Lista de Clientes <span class="badge badge-light">...</span>
+						</button>
+					</a>
+					
+				</div>
+			</fieldset>
+</form>

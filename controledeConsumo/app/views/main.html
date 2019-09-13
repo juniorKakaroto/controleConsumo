@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>#{get 'title' /}</title>
+<meta charset="${_response_encoding}">
+<link rel="stylesheet" media="screen"
+	href="@{'/public/bootstrap/css/bootstrap.min.css'}">
+<link rel="stylesheet" media="screen"
+	href="@{'/public/bootstrap/css/dashboard.css'}">
+<link rel="stylesheet" media="screen"
+	href="@{'/public/stylesheets/main.css'}">
+#{get 'moreStyles' /}
+<link rel="shortcut icon" type="image/png"
+	href="@{'/public/images/favicon.png'}">
+<script src="@{'/public/javascripts/jquery-3.3.1.slim.min.js'}"
+	type="text/javascript"></script>
+<script src="@{'/public/bootstrap/js/popper.min.js'}"
+	type="text/javascript"></script>
+<script src="@{'/public/bootstrap/js/bootstrap.min.js'}"
+	type="text/javascript"></script>
+</head>
+
+
+<body class="bg-light">
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4"
+		style="justify-content: center; display: flex; height: 80px">
+
+		<a href="@{Clientes.form}" class="btn btn-primary " role="button"
+			aria-pressed="true">Novo Cadastro</a> <a
+			class="navbar navbar-expand-md"></a> <a href="@{Clientes.listar}"
+			class="btn btn-primary " role="button" aria-pressed="true">Lista
+			de Clientes</a> <a class="navbar navbar-expand-md"></a>
+
+		<div class="dropdown">
+			<a class="btn btn-primary dropdown-toggle " href="#" role="button"
+				id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"> Pedidos </a>
+
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+				<a class="dropdown-item" href="#">Alterar Pedido</a> <a
+					class="dropdown-item" href="#">Cancelar Pedido</a> <a
+					class="dropdown-item" href="#">Finalizar Pedido</a>
+			</div>
+		</div>
+		<a class="navbar navbar-expand-md"></a>
+
+	</nav>
+
+
+	<!-- 											MAIN 										-->
+	<main role="main" class="col-md-auto  col-lg-auto px-9"> #{if
+	flash.success}
+	<div class="alert alert-success alert-dismissible" role="alert">
+		<button type="button"
+			onclick="this.parentNode.parentNode.removeChild(this.parentNode);"
+			class="close" data-dismiss="alert">
+			<span aria-hidden="true">X</span><span class="sr-only">Close</span>
+		</button>
+		<strong><i class="fa fa-warning"></i> Aviso!</strong>
+		<marquee scrollamount="10" behavior="alternate">
+			<p style="font-family: Impact; font-size: 18pt">${flash.success}</p>
+		</marquee>
+	</div>
+	#{/if} #{if flash.error}
+	<div class="alert alert-danger alert-dismissible" role="alert">
+		<button type="button"
+			onclick="this.parentNode.parentNode.removeChild(this.parentNode);"
+			class="close" data-dismiss="alert">
+			<span aria-hidden="true">X</span><span class="sr-only">Close</span>
+		</button>
+		<strong><i class="fa fa-warning"></i> Aviso!</strong>
+		<marquee scrollamount="10" behavior="alternate">
+			<p style="font-family: Impact; font-size: 18pt">${flash.error}</p>
+		</marquee>
+	</div>
+	#{/if}
+
+	<div
+		class="  flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-5 border-bottom text-center">
+		<h1>#{get 'title' /}</h1>
+	</div>
+
+	#{doLayout /} </main>
+
+	</div>
+	<a class="navbar navbar-expand-md"></a>
+	<!-- só para Espaçamento-->
+	<a class="navbar navbar-expand-md"></a>
+	<!-- só para Espaçamento-->
+	<a class="navbar navbar-expand-md"></a>
+	<!-- só para Espaçamento-->
+	<a class="navbar navbar-expand-md"></a>
+	<!-- só para Espaçamento-->
+	<a class="navbar navbar-expand-md"></a>
+	<!-- só para Espaçamento-->
+
+	<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+		<a class="navbar-brand" href="#"> <img
+			src="../public/images/logo.png" width="auto" height="auto"
+			class="d-inline-block align-top" alt="">
+
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarCollapse" aria-controls="navbarCollapse"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+
+		<div class="collapse navbar-collapse" id="navbarCollapse"></div>
+	</nav>
+
+
+
+	#{get 'moreScripts' /}
+</body>
+</html>
+

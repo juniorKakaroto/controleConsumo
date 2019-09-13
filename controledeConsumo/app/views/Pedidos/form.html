@@ -1,0 +1,63 @@
+#{extends 'main.html' /} #{set title:'Home' /}
+#{set title:'Pedido' /}
+
+
+
+<form action="@{Pedidos.pedido}">
+
+<!-- 		<input type="hidden" name="Itens.id"> -->
+
+	<h2>Pedido de: Fulano</h2>
+
+		<table class="table table-sm">
+		<thead>
+			<tr>
+
+				<th scope="col">Nome</th>
+				<th scope="col">Valor</th>
+				<th scope="col">Quantidade</th>
+				<th scope="col"></th>	
+			</tr>
+		</thead>
+		<tbody>
+			#{list items:itens, as: 'i'}
+			<tr>
+				<td>${i.nome}</td>
+				<td>${i.preco}</td>
+				<td><input type="number" style="width: 80px;"></td>
+				<td>
+				<a class="btn btn-primary" href="@{Clientes.projetos(i.id_projeto)}">ADD ITEM</a>
+				</td>
+			</tr>
+			#{/list}
+		</tbody>
+	</table>
+	
+	<table class="table table-sm">
+		<thead>
+			<tr>
+
+				<th scope="col">Nome</th>
+				<th scope="col">Valor</th>
+				<th scope="col">Quantidade</th>
+				<th scope="col"></th>	
+			</tr>
+		</thead>
+		<tbody>
+			#{list items:itens, as: 'i'}
+			<tr>
+				<td>${i.nome}</td>
+				<td>${i.preco}</td>
+				<td><input type="number" style="width: 80px;"></td>
+				<td>
+				<a class="btn btn-danger" href="@{Clientes.editar(i.id)}">REMOVER ITEM</a>
+				</td>
+			</tr>
+			#{/list}
+		</tbody>
+	</table>
+
+	<input class="btn btn-primary" type="submit" value="Fechar Pedido" >
+	
+		
+</form>
