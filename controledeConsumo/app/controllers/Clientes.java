@@ -4,7 +4,8 @@ import java.util.List;
 
 import models.Cliente;
 import play.mvc.Controller;
-
+import play.mvc.With;
+@With(Secure.class)
 public class Clientes extends Controller {
 	public static void form() {
 		render();

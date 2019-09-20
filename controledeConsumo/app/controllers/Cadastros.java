@@ -4,10 +4,12 @@ import java.util.List;
 
 import models.Cadastro;
 import play.mvc.Controller;
-
+import play.mvc.With;
+@With(Secure.class)
 public class Cadastros extends Controller {
 	public static void form() {
 		render();
+		System.out.println("Junior e lindo e gostoso");
 	}
 
 	public static void cadastrar(Cadastro cad) {
@@ -28,7 +30,8 @@ public class Cadastros extends Controller {
 
 		render(cad, pesquisa);
 	}
-
+    
+	 
 	public static void editar(Long id) {
 		Cadastro cad = Cadastro.findById(id);
 		renderTemplate("Cadastros/form.html", cad);
